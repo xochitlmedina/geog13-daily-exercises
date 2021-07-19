@@ -1,0 +1,58 @@
+```{r}
+library(dplyr)
+library(tidyverse)
+library(sf)
+library(knitr)
+library(readxl)
+url = 'https://raw.githubusercontent.com/plotly/datasets/master/us-cities-top-1k.csv'
+cities = read_csv(url)
+points = cities %>%
+  st_as_sf(coords = c("lon", "lat"), crs = 4326) %>%
+  filter(City %in% c("Stockton", "Santa Barbara")) 
+st_distance(points)
+
+```
+```{r}
+library(dplyr)
+library(tidyverse)
+library(sf)
+library(knitr)
+library(readxl)
+url = 'https://raw.githubusercontent.com/plotly/datasets/master/us-cities-top-1k.csv'
+cities = read_csv(url)
+points = cities %>%
+  st_as_sf(coords = c("lon", "lat"), crs = 4326) %>%
+  filter(City %in% c("Stockton", "Santa Barbara")) 
+st_distance(points)
+
+```
+
+```{r}
+library(dplyr)
+library(tidyverse)
+library(sf)
+library(knitr)
+library(readxl)
+url = 'https://raw.githubusercontent.com/plotly/datasets/master/us-cities-top-1k.csv'
+cities = read_csv(url)
+points = cities %>%
+  st_as_sf(coords = c("lon", "lat"), crs = 4326) %>%
+  filter(City %in% c("Stockton", "Santa Barbara")) 
+st_distance(st_transform(points, 5070))
+
+```
+```{r}
+library(dplyr)
+library(tidyverse)
+library(sf)
+library(knitr)
+library(readxl)
+url = 'https://raw.githubusercontent.com/plotly/datasets/master/us-cities-top-1k.csv'
+cities = read_csv(url)
+points = cities %>%
+  st_as_sf(coords = c("lon", "lat"), crs = 4326) %>%
+  filter(City %in% c("Stockton", "Santa Barbara")) 
+st_distance(st_transform(points, '+proj=eqdc +lat_0=40 +lon_0=-96 +lat_1=20 +lat_2=60 +x_0=0 +y_0=0 +datum=NAD83 +units=m +no_defs'))
+
+
+```
